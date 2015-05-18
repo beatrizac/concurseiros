@@ -1,34 +1,24 @@
-﻿<form name="insertScore">
-    <div class="input-group" ng-class="{'has-error': insertScore.name.$error.required && insertScore.name.$dirty }">
-        <span class="input-group-addon" id="basic-addon1">Nome</span>
-        <input type="text" name="name" class="form-control" placeholder="Insira seu nome"
-               aria-describedby="basic-addon1" ng-model="insertScoreCtrl.candidateData.name" required />
-    </div>
-    <span class="help-block" ng-show="insertScore.name.$error.required && insertScore.name.$dirty">Campo obrigatório</span>
-    <br />
+﻿<div class="col-lg-8 col-lg-offset-2">
+    <h1>Acompanhe sua classificação no ranking</h1>
+    <h3>Concurso Marinha - Fuzileiros</h3>
+    <form name="insertScore" class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-lg-push-3">
+        <div class="form-group" ng-class="{'has-error': insertScore.name.$error.required && insertScore.name.$dirty }">
+            <input type="text" name="name" class="form-control input-lg" placeholder="Nome" ng-model="insertScoreCtrl.candidateData.name" required>
+        </div>
 
-    <div class="input-group" ng-class="{'has-error': (insertScore.email.$error.required || insertScore.email.$error.email) && insertScore.email.$dirty }">
-        <span class="input-group-addon" id="basic-addon2">E-mail</span>
-        <input type="email" name="email" class="form-control" placeholder="Insira seu e-mail"
-               aria-describedby="basic-addon2" ng-model="insertScoreCtrl.candidateData.email" required />
-    </div>
-    <span class="help-block" ng-show="insertScore.email.$error.required && insertScore.email.$dirty">Campo obrigatório</span>
-    <span class="help-block" ng-show="insertScore.email.$error.email">Formatação inválida para um e-mail</span>
-    <br />
-
-    <div class="input-group" ng-class="{'has-error': (insertScore.score.$error.required || insertScore.score.$error.number) && insertScore.score.$dirty }">
-        <span class="input-group-addon" id="basic-addon3">Nota</span>
-        <input type="number" name="score" min="0" class="form-control" placeholder="Insira sua nota"
-               aria-describedby="basic-addon3" ng-model="insertScoreCtrl.candidateData.score" required />
-    </div>
-    <span class="help-block" ng-show="insertScore.score.$error.required && insertScore.score.$dirty">Campo obrigatório</span>
-    <span class="help-block" ng-show="insertScore.score.$error.number && insertScore.score.$dirty">A nota deve ser um valor numérico</span>
-    <br />
-
-    <input type="submit" class="btn btn-success" ng-click="insertScoreCtrl.insertUserScore()" ng-disabled="insertScore.$invalid"/>
-
-</form>
+        <div class="form-group" ng-class="{'has-error': (insertScore.email.$error.required || insertScore.email.$error.email) && insertScore.email.$dirty }">
+            <input type="email" name="email" class="form-control input-lg" placeholder="Email" ng-model="insertScoreCtrl.candidateData.email" required>
+        </div>
 
 
-
-<a href="#/ranking">Ranking</a>
+        <div class="form-group" ng-class="{'has-error': (insertScore.score.$error.required || insertScore.score.$error.number || insertScore.score.$error.min) && insertScore.score.$dirty }">
+            <input type="number" name="score" min="0" class="form-control input-lg" placeholder="Nota" ng-model="insertScoreCtrl.candidateData.score" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success btn-block btn-lg" ng-click="insertScoreCtrl.insertUserScore()" ng-disabled="insertScore.$invalid">Enviar</button>
+        </div>
+        <div class="form-group">
+            <a href="#/marinhaFuzileiros/ranking" class="btn btn-primary btn-block btn-lg">Ver Ranking</a>
+        </div>
+    </form>
+</div>
